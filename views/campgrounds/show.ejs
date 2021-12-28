@@ -1,21 +1,33 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>show</title>
-    </head>
-    <body>
-        <h1><%=camp.title%></h1>
-        <h2><%=camp.location%></h2>
-        <footer>
-            <form action="/campground/<%=camp._id%>?_method=DELETE" method="post">
-                <button>delete</button>
-            </form>
-            <a href="/campground">back to campground list</a>
-            <br>
-            <a href="/campground/<%=camp._id%>/edit">edit</a>
-        </footer>
-    </body>
-    </html>
+<% layout('layout/boilerplate') %>
+<div class="row">
+    <div class="col-6 offset-3">
+        <div class="card mb-3">
+            <img src="<%=camp.image%>" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><%=camp.title%></h5>
+                <p class="card-text"><%=camp.description%></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><%=camp.location%></li>
+              <li class="list-group-item">$<%=camp.price%>/night</li>
+        
+            </ul>
+            <div class="card-body">
+                <form class='d-inline' action="/campground/<%=camp._id%>?_method=DELETE" method="post">
+                    <button class='btn btn-danger'>delete</button>
+                </form>
+                <a class="card-link btn btn-info text-light" href="/campground/<%=camp._id%>/edit">edit</a>
+                <a class="card-link btn btn-primary text-light" href="/campground">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"></path>
+                      </svg>
+                      Campground
+                </a>
+            </div>
+            <div class="card-footer text-muted">
+                1 days ago
+            </div>
+          </div>
+    </div>
+</div>
+
