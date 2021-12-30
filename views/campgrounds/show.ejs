@@ -1,22 +1,31 @@
 <% layout('layout/boilerplate') %>
+<link rel="stylesheet" href="/stylesheet/stars.css">
+
 <div class="row">
     <div class="col-6">
         <div class="card mb-3">
             <img src="<%=camp.image%>" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title"><%=camp.title%></h5>
-                <p class="card-text"><%=camp.description%></p>
+                
+                <blockquote class="blockquote text-right">
+                    <p class="card-text"><%=camp.description%></p>
+                    <footer class="blockquote-footer"><small>by <%=camp.author.username%></small></footer>
+                </blockquote>
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><%=camp.location%></li>
               <li class="list-group-item">$<%=camp.price%>/night</li>
         
             </ul>
+            
             <div class="card-body">
-                <form class='d-inline' action="/campground/<%=camp._id%>?_method=DELETE" method="post">
-                    <button class='btn btn-danger'>delete</button>
-                </form>
-                <a class="card-link btn btn-info text-light" href="/campground/<%=camp._id%>/edit">edit</a>
+                <%  if( currentUser && camp.author.equals(currentUser._id))  {%>
+                    <form class='d-inline' action="/campground/<%=camp._id%>?_method=DELETE" method="post">
+                        <button class='btn btn-danger'>delete</button>
+                    </form>
+                    <a class="card-link btn btn-info text-light" href="/campground/<%=camp._id%>/edit">edit</a>
+                <% } %>
                 <a class="card-link btn btn-primary text-light" href="/campground">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"></path>
@@ -30,11 +39,20 @@
           </div>  
     </div>
     <div class="col-6">
+        
         <% for (let review of camp.reviews){%>
             <div class="card mb-3">
+                
                 <div class="card-body">
                     <h5 class="card-title">Rating: <%=review.rating%></h5>
-                    <p class = "card-text">Review: <%=review.body%></p>
+                    <p class="starability-result" data-rating="<%=review.rating%>">
+                        Rated: <%= review.rating %> stars
+                    </p>
+                    <blockquote class="blockquote text-right">
+                        <p class = "card-text">Review: <%=review.body%></p>
+                        <footer class="blockquote-footer"><small>by <%= review.author.username%></small></footer>
+                    </blockquote>
+                    <%  if( currentUser && review.author.equals(currentUser._id))  {%>
                     <form class='d-inline' action="/campground/<%=camp._id%>/reviews/<%=review._id%>?_method=DELETE" method="post">
                         <button class='btn-sm.btn-sm btn-danger rounded border-0'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
@@ -43,18 +61,38 @@
                             </svg>
                         </button>                       
                     </form>
+                    <%}%>
                     
                 </div>
             </div>
-          <%}%>
+        <%}%>
+        <% if(currentUser){%>
         <div class="card mb-3">
             <div class="card-body">
                 <h3 class="card-title">Share Your Review!</h3>
                 <form action="/campground/<%=camp._id%>/reviews" method="post" class="mb-3 validated-form" novalidate>
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
+                    <label class="form-label" for="rating">Rating</label>
+                    <input class="form-range" type="range" min="1" max="5" name="review[rating]" id="rating">
+                    </div> -->
+                    <fieldset class="starability-growRotate">
+                        <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked
+                            aria-label="No rating." />
+                        <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                        <label for="first-rate1" title="Terrible">1 star</label>
+                        <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                        <label for="first-rate2" title="Not good">2 stars</label>
+                        <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                        <label for="first-rate3" title="Average">3 stars</label>
+                        <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                        <label for="first-rate4" title="Very good">4 stars</label>
+                        <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                        <label for="first-rate5" title="Amazing">5 stars</label>
+                    </fieldset>
+                    <!--<div class="mb-3">
                         <label class="form-label" for="rating">Rating</label>
                         <input class="form-range" type="range" name="review[rating]" id="rating" min="1" max="5" value="0">
-                    </div>
+                    </div>-->
                     <div class="mb-3">
                         <label class="form-label" for="body">Review</label>
                         <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
@@ -62,8 +100,14 @@
                     <button class="btn btn-success">Submit</button>   
                 </form>
             </div>
-            
         </div>
+        <%}else{%>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title">Login to Share Your Review!</h3>
+                </div>
+            </div>
+        <%}%>
           
     </div>
 </div>
