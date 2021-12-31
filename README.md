@@ -2,3 +2,6 @@
 
 VS Code Extentions:
 - EJS language support
+
+Other Tools:
+- Cloudinary

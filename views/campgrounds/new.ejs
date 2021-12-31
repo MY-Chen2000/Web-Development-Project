@@ -4,7 +4,7 @@
         New Campground
     </h1>
     <div class="col-6 offset-3">
-        <form action="/campground" method="post" novalidate class="validated-form">
+        <form action="/campground" method="post" novalidate class="validated-form" enctype="multipart/form-data">
             <div class='mb-3'>
                 <label class="form-label" for="title">Title</label>
                 <input class="form-control" type="text" id= "title" name= "campground[title]" required>
@@ -20,10 +20,21 @@
                 <label class="form-label" for="location">Location</label>
                 <input class="form-control" type="text" id= "location" name= "campground[location]" required>
             </div>
-            <div class='mb-3'>
-                <label class="form-label" for="image">Image Url</label>
-                <input class="form-control" type="text" id= "image" name= "campground[image]" required>
+            <div class="mb-3">
+                <div class="form-file custom-file">
+                    <input type="file" class="form-file-input" id="image" name="image" multiple>
+                    <label class="form-file-label" for="image">
+                        <!--<span class="form-file-text custom-file-label">Choose image(s)...</span>
+                        <span class="form-file-button">Browse</span>-->
+                    </label>
+                </div>
             </div>
+            <!--
+                <div class='mb-3'>
+                    <label class="form-label" for="image">Image Url</label>
+                    <input class="form-control" type="text" id= "image" name= "campground[image]" required>
+                 </div>
+            -->
             <div class='mb-3'>
                 <label class="form-label" for="descrip">Description</label>
                 <textarea class="form-control" type="text" id= "descrip" name= "campground[description]" required></textarea>

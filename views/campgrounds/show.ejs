@@ -3,8 +3,53 @@
 
 <div class="row">
     <div class="col-6">
+        <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://s36593.pcdn.co/wp-content/uploads/2020/06/Addax-Male-JEP_6713-480x320.jpg" class="d-block w-100" >
+              </div>
+              <div class="carousel-item">
+                <img src="https://s36593.pcdn.co/wp-content/uploads/2020/06/Addax-JEP_9270-480x320.jpg" class="d-block w-100" >
+              </div>
+              <div class="carousel-item">
+                <img src="https://s36593.pcdn.co/wp-content/uploads/2020/02/Dogs-African-JEP_8748-480x320.jpg" class="d-block w-100" >
+              </div>
+            </div>
+            <% if(camp.image.length > 1) {%>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+            <% } %>
+        </div> -->
+        
+        <div id="campgroundCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <% camp.image.forEach((img, i) => {  %>
+                <div class="carousel-item <%= i === 0 ? 'active' : ''%>">
+                    <img src="<%= img.url%>" class="d-block w-100" alt="">
+                </div>
+                <% }) %>
+
+            </div>
+            <% if(camp.image.length > 1) {%>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+    
+            <% } %>
+        </div>
+       
         <div class="card mb-3">
-            <img src="<%=camp.image%>" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title"><%=camp.title%></h5>
                 
@@ -44,14 +89,13 @@
             <div class="card mb-3">
                 
                 <div class="card-body">
-                    <h5 class="card-title">Rating: <%=review.rating%></h5>
+                    <h6 class="card-title text-muted"><%=review.author.username%></h6>
                     <p class="starability-result" data-rating="<%=review.rating%>">
                         Rated: <%= review.rating %> stars
                     </p>
-                    <blockquote class="blockquote text-right">
-                        <p class = "card-text">Review: <%=review.body%></p>
-                        <footer class="blockquote-footer"><small>by <%= review.author.username%></small></footer>
-                    </blockquote>
+                    <p class = "card-text">Review: <%=review.body%></p>
+                     
+                
                     <%  if( currentUser && review.author.equals(currentUser._id))  {%>
                     <form class='d-inline' action="/campground/<%=camp._id%>/reviews/<%=review._id%>?_method=DELETE" method="post">
                         <button class='btn-sm.btn-sm btn-danger rounded border-0'>
