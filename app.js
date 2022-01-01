@@ -13,6 +13,7 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const localStrategy = require('passport-local');
 const User = require('./models/user');
+const mongoSanitize = require('express-mongo-sanitize');
 
 
 const mongoose = require('mongoose');
@@ -69,7 +70,7 @@ app.use((req,res,next)=>{
     next();
 })
 
-
+app.use(mongoSanitize());
 
 app.use('/',userRouter);
 app.use('/campground',campRouter);

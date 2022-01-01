@@ -5,3 +5,5 @@ VS Code Extentions:
 
 Other Tools:
 - Cloudinary
+- mapbox
+- MongoDB Cloud

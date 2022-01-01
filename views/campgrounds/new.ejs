@@ -1,7 +1,7 @@
 <% layout('layout/boilerplate') %>
 <div class="row">
     <h1 class="text-center">
-        New Campground
+        New Movie
     </h1>
     <div class="col-6 offset-3">
         <form action="/campground" method="post" novalidate class="validated-form" enctype="multipart/form-data">
@@ -9,16 +9,20 @@
                 <label class="form-label" for="title">Title</label>
                 <input class="form-control" type="text" id= "title" name= "campground[title]" required>
             </div>
+            <div class='mb-3'>
+                <label class="form-label" for="location">Country</label>
+                <input class="form-control" type="text" id= "location" name= "campground[location]" required>
+            </div>
             <div class="input-group mb-3">
-                <label class="form-label" for="price">Price</label>
+                <label class="form-label" for="price">Box Office(million)</label>
                 <div class="input-group">
                     <span class="input-group-text" id="price-label">$</span>
                     <input type="text" class="form-control" name= "campground[price]" placeholder="0.00" aria-label="price" aria-describedby="price-label" required>
                 </div>
             </div>
             <div class='mb-3'>
-                <label class="form-label" for="location">Location</label>
-                <input class="form-control" type="text" id= "location" name= "campground[location]" required>
+                <label class="form-label" for="descrip">Description</label>
+                <textarea class="form-control" type="text" id= "descrip" name= "campground[description]" required></textarea>
             </div>
             <div class="mb-3">
                 <!-- <label for="formFileMultiple" class="form-label">Choose image(s)</label>
@@ -34,18 +38,19 @@
                     <input class="form-control" type="text" id= "image" name= "campground[image]" required>
                  </div>
             -->
-            <div class='mb-3'>
-                <label class="form-label" for="descrip">Description</label>
-                <textarea class="form-control" type="text" id= "descrip" name= "campground[description]" required></textarea>
-            </div>
+            
             <div class="mb-3">
                 <button class='btn btn-success'>create</button>
+                <a class="card-link btn btn-primary text-light" href="/campground">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"></path>
+                      </svg>
+                      Movies
+                </a>
             </div>
             
         </form>
-        <footer>
-            <a href="/campground">back to campground list</a>
-        </footer>
+        
     </div>
 </div>
 
