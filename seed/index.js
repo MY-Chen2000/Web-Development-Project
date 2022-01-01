@@ -28,18 +28,25 @@ const seedDB = async () => {
             //image: 'https://source.unsplash.com/collection/483251',
             price:getPrice,
             description:'This is a description',
+            geometry: {
+                type: "Point",
+                coordinates: [
+                    randomElement(cities).longitude,
+                    randomElement(cities).latitude,
+                ]
+            },
             image: [
                 {
-                    url: 'https://s36593.pcdn.co/wp-content/uploads/2020/02/Dogs-African-JEP_8748-480x320.jpg',
-                    filename: 'YelpCamp/ahfnenvca4tha00h2ubt'
+                    url: 'https://res.cloudinary.com/db3sdq15t/image/upload/v1640978563/project/D7FB065B-6231-4F8F-9F4D-C17699BB3536_sw7hxg.jpg',
+                    filename: 'project/D7FB065B-6231-4F8F-9F4D-C17699BB3536_sw7hxg'
                 },
                 {
-                    url: 'https://s36593.pcdn.co/wp-content/uploads/2020/06/Addax-Male-JEP_6713-480x320.jpg',
-                    filename: 'YelpCamp/ahfnenvca4tha00h2'
+                    url: 'https://res.cloudinary.com/db3sdq15t/image/upload/v1640978563/project/9148AFCF-1DE9-4412-BCED-E580FB437F5D_yvislo.jpg',
+                    filename: 'project/9148AFCF-1DE9-4412-BCED-E580FB437F5D_yvislo'
                 },
                 {
-                    url: 'https://res.cloudinary.com/db3sdq15t/image/upload/v1640898152/samples/animals/reindeer.jpg',
-                    filename: 'YelpCamp/ruyoaxgf72nzpi4y6cdi'
+                    url: 'https://res.cloudinary.com/db3sdq15t/image/upload/v1640978563/project/638FDE2B-88E2-417D-B808-052E0005B8B8_dpgfbl.jpg',
+                    filename: 'project/638FDE2B-88E2-417D-B808-052E0005B8B8_dpgfbl'
                 }
             ]
 

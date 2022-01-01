@@ -4,7 +4,7 @@
         Edit Campground
     </h1>
     <div class="col-6 offset-3">
-        <form action="/campground" method="post" novalidate class="validated-form">
+        <form action="/campground/<%=camp._id%>?_method=PUT" method="post" novalidate class="validated-form" enctype="multipart/form-data">
             <div class='mb-3'>
                 <label class="form-label" for="title">Title</label>
                 <input class="form-control" type="text" id= "title" name= "campground[title]" value="<%=camp.title%>" required>
@@ -21,12 +21,26 @@
                 <input class="form-control" type="text" id= "location" name= "campground[location]" value="<%=camp.location%>" required>
             </div>
             <div class='mb-3'>
-                <label class="form-label" for="image">Image Url</label>
-                <input class="form-control" type="text" id= "image" name= "campground[image]" value="<%=camp.image%>" required>
+                <label class="form-label" for="image">Add more image(s)</label>
+                <div class="form-file custom-file">
+                    <input type="file" class="form-file-input" id="image" name="image" multiple>
+                </div>
+                <!-- <label class="form-label" for="image">Image Url</label>
+                <input class="form-control" type="text" id= "image" name= "campground[image]" value="<%=camp.image%>" required> -->
             </div>
             <div class='mb-3'>
                 <label class="form-label" for="descrip">Description</label>
                 <textarea class="form-control" type="text" id= "descrip" name= "campground[description]" required><%=camp.description%></textarea>
+            </div>
+            <div class="mb-3">
+                <% camp.image.forEach(function(img, i) {  %>
+                <img src="<%=img.thumbnail %>" class="img-thumbnail" style="width:200px;height:200px;" alt="">
+                <div class="form-check-inline">
+                    <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+                    <label for="image-<%=i%>">Delete</label>
+                </div>
+                
+                <% })%>
             </div>
             <div class="mb-3">
                 <button class='btn btn-info'>edit</button>

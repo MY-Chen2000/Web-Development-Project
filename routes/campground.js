@@ -20,7 +20,7 @@ router.get('/new',isLoggedIn,catchAsync(campControll.newForm));
 
 router.route('/:id')
     .get(catchAsync(campControll.idCamp))
-    .put(isLoggedIn,isAuthor, valCamp,catchAsync(campControll.editCamp))
+    .put(isLoggedIn,isAuthor, upload.array('image'), valCamp,catchAsync(campControll.editCamp))
     .delete(isLoggedIn,catchAsync( campControll.deleteCamp))
 
 /***** */
