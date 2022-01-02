@@ -1,6 +1,7 @@
 # Movie Review Website
 
 ## Demo
+- [Video Demo](https://youtu.be/rglOZ8h5pV4)
 - [Website](https://thawing-island-64029.herokuapp.com)
 
 ## Introduction
