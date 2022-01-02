@@ -8,7 +8,10 @@
   - Utilized [Passport](http://www.passportjs.org/) to implement authentication, which can avoid security problems of direct storage of passwords.
   - With [Express session](https://www.npmjs.com/package/express-session), the web application applies persistent login sessions.  
 - Movies&Reviews
-  
+  - Utilized [Mongoose](https://mongoosejs.com/) to design data schema and connect to [MongoDB](https://www.mongodb.com/).
+  - Utilized [Joi](https://joi.dev/api/?v=17.5.0) to validate data submitted by users.
+  - Without loggin, users can only do read operation. After logging in, users can do create/update/delete operations.
+ 
 
 
 ### Technologies&Tools:
