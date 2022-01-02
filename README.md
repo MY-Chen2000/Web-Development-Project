@@ -2,10 +2,10 @@
 
 ### Demo
 - [Website](https://thawing-island-64029.herokuapp.com)
-<br/> 
+ 
 ### Introduction
 This is a movie review website. Users can look up the infomation and reviews of movies. After logging in, users can add new movies to the list and share their own reviews. Users can only modify movies and reviews created by themselves. 
-<br/> 
+
 ### Main Components
 - Register&Login
   - Utilized [Passport](http://www.passportjs.org/) to implement authentication, which can avoid security problems of direct storage of passwords.
@@ -19,14 +19,14 @@ This is a movie review website. Users can look up the infomation and reviews of 
   - Utilized [mapbox](https://www.mapbox.com/) to build a map with clusterd point data, which shows the distribution of production countries of movies in the list.
 
 
-<br/> 
+
 ### Technologies&Tools:
 - JavaScript, CSS, HTML
 - The front-end website is built with [Bootstrap5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) framework.
 - The database is based on [MongoDB Cloud](https://cloud.mongodb.com/).
 - [Cloudinary](https://cloudinary.com/) platform is used to store images uploaded by users.
 - The application is deployed on [Heroku](https://dashboard.heroku.com/apps) platform.
-<br/> 
+
 
 ### VS Code Extentions:
 - EJS language support
