@@ -15,6 +15,7 @@
 
 
 ### Technologies&Tools:
+- JavaScript, CSS, HTML
 - The front-end website is built with [Bootstrap5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) framework.
 - The database is based on [MongoDB Cloud](https://cloud.mongodb.com/).
 - [Cloudinary](https://cloudinary.com/) platform is used to store images uploaded by users.
