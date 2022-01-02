@@ -15,9 +15,12 @@ const localStrategy = require('passport-local');
 const User = require('./models/user');
 const mongoSanitize = require('express-mongo-sanitize');
 
+const MongoDBStore = require("connect-mongo");
 
+const dbUrl = process.env.DB_URL;
+//const dbUrl = 'mongodb://localhost:27017/camp';
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/camp')
+mongoose.connect(dbUrl); 
 const db = mongoose.connection;
 db.on('error',console.error.bind(console,"connection error:"),{
     useNewUrlParser:true
@@ -42,8 +45,22 @@ app.use(express.urlencoded({extended:true}));
 app.use(Override('_method'));
 app.use(express.static(path.join(__dirname,'public')));
 
+const secret = process.env.SECRET || 'thisisasecret';
+
+const store = new MongoDBStore({
+    mongoUrl: dbUrl,
+    secret,
+    touchAfter: 24 * 60 * 60
+});
+
+store.on("error", function (e) {
+    console.log("SESSION STORE ERROR", e)
+});
+
 const sessionConfig = {
-    secret: 'thisisasecret',
+    store,
+    name: 'session',
+    secret,
     resave:false,
     saveUninitialized:true,
     cookie:{
@@ -52,6 +69,7 @@ const sessionConfig = {
         maxAge: 1000 * 60 * 60 * 24
     }
 }
+
 app.use(session(sessionConfig));
 app.use(flash());
 app.use(passport.initialize());
