@@ -2,7 +2,7 @@
 
 ### Demo
 - [Website](https://thawing-island-64029.herokuapp.com)
- 
+ &nbsp;
 ### Introduction
 This is a movie review website. Users can look up the infomation and reviews of movies. After logging in, users can add new movies to the list and share their own reviews. Users can only modify movies and reviews created by themselves. 
 
