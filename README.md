@@ -4,7 +4,7 @@
 - [Website](https://thawing-island-64029.herokuapp.com)
 
 ### Description
-This is a movie review website. Users can look up the infomation and reviews of movies. After logging in, users can add new movies to the list and share their own reviews. Users can only modify movies and reviews created by themselves. There is a map with clusterd point data to show the distribution of production countries of movies in the list.
+This is a movie review website. Users can look up the infomation and reviews of movies. After logging in, users can add new movies to the list and share their own reviews. Users can only modify movies and reviews created by themselves. 
 
 ### Main Components
 - Register&Login
