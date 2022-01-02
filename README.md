@@ -11,7 +11,7 @@
   - Utilized [Mongoose](https://mongoosejs.com/) to design data schema and connect to [MongoDB](https://www.mongodb.com/).
   - Utilized [Joi](https://joi.dev/api/?v=17.5.0) to validate data submitted by users.
   - Without login, users can only do Read operations. After logging in, users can do Create/Update/Delete operations.
-  - Users can upload images and these images will be stored on [Cloudinary](https://cloudinary.com/) platform. If users do not upload images, the web app will use the default image instead.
+  - Users can upload images and these images will be stored on [Cloudinary](https://cloudinary.com/) platform. If users do not upload images, the default image will be used as an alternative.
  
 
 
