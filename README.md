@@ -3,6 +3,9 @@
 ### Demo
 - [Website](https://thawing-island-64029.herokuapp.com)
 
+### Description
+This is a movie review website. Users can look up the infomation and reviews of movies. After logging in, users can add new movies to the list and share their own reviews. Users can only modify movies and reviews created by themselves. There is a map with clusterd point data to show the distribution of production countries of movies in the list.
+
 ### Main Components
 - Register&Login
   - Utilized [Passport](http://www.passportjs.org/) to implement authentication, which can avoid security problems of direct storage of passwords.
@@ -12,7 +15,9 @@
   - Utilized [Joi](https://joi.dev/api/?v=17.5.0) to validate data submitted by users.
   - Without login, users can only do Read operations. After logging in, users can do Create/Update/Delete operations.
   - Users can upload images and these images will be stored on [Cloudinary](https://cloudinary.com/) platform. If users do not upload images, the default image will be used as an alternative.
- 
+ - Map
+  - Utilized [mapbox](https://www.mapbox.com/) to build a map with clusterd point data, which shows the distribution of production countries of movies in the list.
+
 
 
 ### Technologies&Tools:
@@ -27,5 +32,4 @@
 - EJS language support
 
 
-### Other Tools:
-- [mapbox](https://www.mapbox.com/)
+
