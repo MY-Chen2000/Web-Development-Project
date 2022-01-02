@@ -1,4 +1,4 @@
-# Web-Development-Project
+# Movie Review Website
 
 ### Demo
 - [Website](https://thawing-island-64029.herokuapp.com)
