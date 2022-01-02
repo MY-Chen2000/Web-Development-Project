@@ -12,10 +12,10 @@
 
 
 ### Technologies&Tools:
-- The front-end website is built with **Bootstrap5** framework.
-- The database is based on **MongoDB Cloud**.
-- **Cloudinary** platform is used to store images uploaded by users.
-- The application is deployed on **Heroku** platform.
+- The front-end website is built with [Bootstrap5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) framework.
+- The database is based on [MongoDB Cloud](https://cloud.mongodb.com/).
+- [Cloudinary](https://cloudinary.com/) platform is used to store images uploaded by users.
+- The application is deployed on [Heroku](https://dashboard.heroku.com/apps) platform.
 
 
 ### VS Code Extentions:
